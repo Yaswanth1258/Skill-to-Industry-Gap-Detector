@@ -79,7 +79,14 @@ const AppShell = () => {
         }),
       });
 
-      const payload = await response.json();
+      const rawText = await response.text();
+      const contentType = response.headers.get('content-type') || '';
+      const payload = rawText && contentType.includes('application/json') ? JSON.parse(rawText) : null;
+
+      if (!payload) {
+        throw new Error(`Login API returned an invalid response (status ${response.status}). Please verify REACT_APP_API_BASE in frontend Render settings and redeploy.`);
+      }
+
       if (!response.ok || !payload?.success) {
         throw new Error(payload?.error || 'Login failed');
       }
