@@ -1,9 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { BookOpen, Code2, Award, Clock, Sparkles, Target, CheckCircle2, Circle, PlayCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import API_BASE from '../config/api';
 
 const AIRoadmap = () => {
+  const navigate = useNavigate();
   const [roadmap, setRoadmap] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -226,9 +228,13 @@ const AIRoadmap = () => {
         <div className="glass-card-strong rounded-3xl p-8 text-center">
           <h2 className="text-2xl font-bold gradient-text mb-3">Roadmap Unavailable</h2>
           <p className="text-gray-600 mb-5">{error}</p>
-          <a href="/roles" className="glow-button inline-flex px-6 py-3 rounded-xl text-white font-semibold">
+          <button
+            type="button"
+            onClick={() => navigate('/roles')}
+            className="glow-button inline-flex px-6 py-3 rounded-xl text-white font-semibold"
+          >
             Choose a Role
-          </a>
+          </button>
         </div>
       </div>
     );
@@ -603,12 +609,20 @@ const AIRoadmap = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-4">
-        <a href="/insights" className="glow-button px-8 py-3 rounded-2xl text-white font-semibold inline-flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => navigate('/insights')}
+          className="glow-button px-8 py-3 rounded-2xl text-white font-semibold inline-flex items-center gap-2"
+        >
           <Target size={18} /> View Career Insights
-        </a>
-        <a href="/roles" className="glass-card-strong px-8 py-3 rounded-2xl text-gray-700 font-semibold inline-flex items-center gap-2 hover:glow-border transition-all">
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate('/roles')}
+          className="glass-card-strong px-8 py-3 rounded-2xl text-gray-700 font-semibold inline-flex items-center gap-2 hover:glow-border transition-all"
+        >
           <Clock size={18} /> Explore Other Roles
-        </a>
+        </button>
       </div>
     </div>
   );

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import GlassCard from '../components/GlassCard';
 import AnimatedButton from '../components/AnimatedButton';
 import { TrendingUp, Briefcase, DollarSign, Search, Wand2 } from 'lucide-react';
 import API_BASE from '../config/api';
 
 const IndustryRoleExplorer = () => {
+  const navigate = useNavigate();
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -67,7 +69,7 @@ const IndustryRoleExplorer = () => {
 
     // Store selected role and navigate to dashboard
     localStorage.setItem('selectedRoleId', roleId);
-    window.location.href = '/dashboard';
+    navigate('/dashboard');
   };
 
   const handleCreateCustomRole = async () => {

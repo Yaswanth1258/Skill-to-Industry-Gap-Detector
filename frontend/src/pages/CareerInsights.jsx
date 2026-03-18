@@ -1,10 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { TrendingUp, Lightbulb, Award, Briefcase, Target, ArrowUpRight } from 'lucide-react';
 import API_BASE from '../config/api';
 
 const CareerInsights = () => {
+  const navigate = useNavigate();
   const [insights, setInsights] = useState(null);
   const [latestAnalysis, setLatestAnalysis] = useState(null);
   const [studentProfile, setStudentProfile] = useState(null);
@@ -195,9 +197,13 @@ const CareerInsights = () => {
         <div className="glass-card-strong rounded-3xl p-8 text-center">
           <h2 className="text-2xl font-bold gradient-text mb-3">Insights Unavailable</h2>
           <p className="text-gray-600 mb-5">{error}</p>
-          <a href="/skill-profile" className="glow-button inline-flex px-6 py-3 rounded-xl text-white font-semibold">
+          <button
+            type="button"
+            onClick={() => navigate('/skill-profile')}
+            className="glow-button inline-flex px-6 py-3 rounded-xl text-white font-semibold"
+          >
             Complete Profile
-          </a>
+          </button>
         </div>
       </div>
     );
@@ -427,12 +433,20 @@ const CareerInsights = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-4">
-        <a href="/roadmap" className="glow-button px-8 py-3 rounded-2xl text-white font-semibold inline-flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => navigate('/roadmap')}
+          className="glow-button px-8 py-3 rounded-2xl text-white font-semibold inline-flex items-center gap-2"
+        >
           Continue Learning Path
-        </a>
-        <a href="/roles" className="glass-card-strong px-8 py-3 rounded-2xl text-gray-700 font-semibold hover:glow-border transition-all">
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate('/roles')}
+          className="glass-card-strong px-8 py-3 rounded-2xl text-gray-700 font-semibold hover:glow-border transition-all"
+        >
           Explore Roles
-        </a>
+        </button>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import GlassCard from '../components/GlassCard';
 import AnimatedButton from '../components/AnimatedButton';
@@ -7,6 +8,7 @@ import { CheckCircle, AlertCircle, TrendingUp } from 'lucide-react';
 import API_BASE from '../config/api';
 
 const SkillGapDashboard = () => {
+  const navigate = useNavigate();
   const [analysis, setAnalysis] = useState(null);
   const [studentProfile, setStudentProfile] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -135,9 +137,7 @@ const SkillGapDashboard = () => {
         <GlassCard className="text-center p-8">
           <h2 className="text-2xl font-bold mb-4">No Analysis Found</h2>
           <p className="text-gray-600 mb-6">Please create a profile and select a role to see analysis</p>
-          <a href="/skill-profile">
-            <AnimatedButton>Get Started</AnimatedButton>
-          </a>
+          <AnimatedButton onClick={() => navigate('/skill-profile')}>Get Started</AnimatedButton>
         </GlassCard>
       </div>
     );
@@ -382,12 +382,8 @@ const SkillGapDashboard = () => {
 
         {/* Action Buttons */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="mt-8 flex gap-4">
-          <a href="/roadmap" className="flex-1">
-            <AnimatedButton className="w-full">Get Learning Roadmap</AnimatedButton>
-          </a>
-          <a href="/roles" className="flex-1">
-            <AnimatedButton variant="outline" className="w-full">Explore Other Roles</AnimatedButton>
-          </a>
+          <AnimatedButton className="w-full flex-1" onClick={() => navigate('/roadmap')}>Get Learning Roadmap</AnimatedButton>
+          <AnimatedButton variant="outline" className="w-full flex-1" onClick={() => navigate('/roles')}>Explore Other Roles</AnimatedButton>
         </motion.div>
       </div>
     </div>

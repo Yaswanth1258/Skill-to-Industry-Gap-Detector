@@ -1,9 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { User, Trophy, Target, TrendingUp, CheckCircle2, ListChecks } from 'lucide-react';
 import API_BASE from '../config/api';
 
 const ProfileDashboard = () => {
+  const navigate = useNavigate();
   const [student, setStudent] = useState(null);
   const [roadmaps, setRoadmaps] = useState([]);
   const [analyses, setAnalyses] = useState([]);
@@ -119,9 +121,13 @@ const ProfileDashboard = () => {
         <div className="glass-card-strong rounded-3xl p-8 text-center">
           <h2 className="text-2xl font-bold gradient-text mb-3">Profile Dashboard Unavailable</h2>
           <p className="text-gray-600 mb-5">{error}</p>
-          <a href="/skill-profile" className="glow-button inline-flex px-6 py-3 rounded-xl text-white font-semibold">
+          <button
+            type="button"
+            onClick={() => navigate('/skill-profile')}
+            className="glow-button inline-flex px-6 py-3 rounded-xl text-white font-semibold"
+          >
             Go To Skill Profile
-          </a>
+          </button>
         </div>
       </div>
     );
