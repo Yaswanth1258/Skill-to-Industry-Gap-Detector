@@ -10,8 +10,8 @@ const app = express();
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/student', require('./routes/studentRoutes'));
@@ -20,6 +20,9 @@ app.use('/api/analysis', require('./routes/analysisRoutes'));
 app.use('/api/roadmap', require('./routes/roadmapRoutes'));
 app.use('/api/insights', require('./routes/insightsRoutes'));
 
+app.get('/', (req, res) => {
+  res.send('Backend is running 🚀');
+});
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'Server is running', timestamp: new Date() });
