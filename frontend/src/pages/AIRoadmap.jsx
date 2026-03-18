@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Code2, Award, Clock, Sparkles, Target, CheckCircle2, Circle, PlayCircle, ChevronDown, ChevronUp } from 'lucide-react';
-
-const API_BASE = 'http://localhost:5000';
+import API_BASE from '../config/api';
 
 const AIRoadmap = () => {
   const [roadmap, setRoadmap] = useState(null);

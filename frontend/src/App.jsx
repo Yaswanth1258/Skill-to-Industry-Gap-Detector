@@ -8,9 +8,8 @@ import SkillGapDashboard from './pages/SkillGapDashboard';
 import AIRoadmap from './pages/AIRoadmap';
 import CareerInsights from './pages/CareerInsights';
 import ProfileDashboard from './pages/ProfileDashboard';
+import API_BASE from './config/api';
 import './styles/globals.css';
-
-const API_BASE = 'http://localhost:5000';
 
 const ProtectedView = ({ children, onOpenLogin }) => {
   const loggedIn = Boolean(localStorage.getItem('studentId'));

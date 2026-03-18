@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import GlassCard from '../components/GlassCard';
 import AnimatedButton from '../components/AnimatedButton';
 import { TrendingUp, Briefcase, DollarSign, Search, Wand2 } from 'lucide-react';
+import API_BASE from '../config/api';
 
 const IndustryRoleExplorer = () => {
-  const API_BASE = 'http://localhost:5000';
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState(null);
   const [loading, setLoading] = useState(true);

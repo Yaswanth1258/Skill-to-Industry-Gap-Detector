@@ -2,8 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { TrendingUp, Lightbulb, Award, Briefcase, Target, ArrowUpRight } from 'lucide-react';
-
-const API_BASE = 'http://localhost:5000';
+import API_BASE from '../config/api';
 
 const CareerInsights = () => {
   const [insights, setInsights] = useState(null);

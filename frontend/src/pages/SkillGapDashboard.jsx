@@ -4,8 +4,7 @@ import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, R
 import GlassCard from '../components/GlassCard';
 import AnimatedButton from '../components/AnimatedButton';
 import { CheckCircle, AlertCircle, TrendingUp } from 'lucide-react';
-
-const API_BASE = 'http://localhost:5000';
+import API_BASE from '../config/api';
 
 const SkillGapDashboard = () => {
   const [analysis, setAnalysis] = useState(null);

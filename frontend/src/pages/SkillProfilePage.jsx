@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import GlassCard from '../components/GlassCard';
 import SkillChip from '../components/SkillChip';
 import { Plus, Save } from 'lucide-react';
+import API_BASE from '../config/api';
 
 const normalizeSkills = (skills = []) => {
   if (!Array.isArray(skills)) {
@@ -25,7 +26,6 @@ const normalizeSkills = (skills = []) => {
 };
 
 const SkillProfilePage = ({ onProfileSaved }) => {
-  const API_BASE = 'http://localhost:5000';
   const [formData, setFormData] = useState({
     name: localStorage.getItem('userName') || '',
     email: localStorage.getItem('userEmail') || '',

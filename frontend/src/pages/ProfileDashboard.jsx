@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Trophy, Target, TrendingUp, CheckCircle2, ListChecks } from 'lucide-react';
-
-const API_BASE = 'http://localhost:5000';
+import API_BASE from '../config/api';
 
 const ProfileDashboard = () => {
   const [student, setStudent] = useState(null);
