@@ -41,7 +41,7 @@ const startServer = async () => {
     await connectDB();
 
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on http://localhost:${PORT}`);
+      console.log(`🚀 Server running on ${PORT}`);
       console.log(`📊 Skill-to-Industry Gap Detector Backend`);
     });
   } catch (error) {
